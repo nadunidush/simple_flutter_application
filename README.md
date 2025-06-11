@@ -1,4 +1,4 @@
-# simple_flutter_application
+# Simple_Flutter_Application
 
 This innovative mobile application which was created using Flutter displays comprehensive specs of different smartphones. It gives consumers a modern interactive way to explore phone features specs and costs in an amazing manner.
 
