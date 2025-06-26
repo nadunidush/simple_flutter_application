@@ -1,16 +1,5 @@
 import 'package:flutter/material.dart';
 
-Widget buildBackground() {
-  return Container(
-    decoration: BoxDecoration(
-      gradient: LinearGradient(
-        colors: [Colors.deepPurple, Colors.blueAccent],
-        begin: Alignment.topLeft,
-        end: Alignment.bottomRight,
-      ),
-    ),
-  );
-}
 
 Widget buildInfoRow(IconData icon, String text) {
   return Padding(

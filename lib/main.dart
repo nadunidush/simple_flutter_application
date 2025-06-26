@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:simple_flutter_application/pages/cart_screen.dart';
+import 'package:simple_flutter_application/pages/checkout_screen.dart';
 
-import 'package:simple_flutter_application/pages/item_list_screen.dart';
+import 'package:simple_flutter_application/pages/login_scree.dart';
+import 'package:simple_flutter_application/pages/registation_screen.dart';
 import 'package:simple_flutter_application/services/item_provider.dart';
 
 
@@ -30,7 +33,14 @@ class MyApp extends StatelessWidget {
           bodyMedium: TextStyle(fontSize: 18, color: Colors.white),
         ),
       ),
-      home: const ItemListScreen(),
+      initialRoute: '/login',
+      routes: {
+        '/login': (context) => const LoginScreen(),
+        '/register': (context) => const RegisterScreen(),
+        '/cart': (context) => const CartScreen(),
+        '/checkout': (context) => const CheckoutScreen(),
+      },
+      //home: ItemListScreen(),
     );
   }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:simple_flutter_application/constants/colors.dart';
 
 import 'package:simple_flutter_application/pages/detail_screen.dart';
 import 'package:simple_flutter_application/services/data_service.dart';
@@ -27,6 +28,7 @@ class _ItemListScreenState extends State<ItemListScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: Container(),
         title: const Text(
           "Phones",
           style: TextStyle(fontSize: 23, fontWeight: FontWeight.w800),
@@ -43,7 +45,7 @@ class _ItemListScreenState extends State<ItemListScreen> {
                 borderRadius: BorderRadius.circular(15),
               ),
               elevation: 8,
-              shadowColor: Colors.teal.withOpacity(0.5),
+              shadowColor: kShadowColor.withOpacity(0.5),
               child: ListTile(
                 contentPadding: const EdgeInsets.all(12),
                 leading: ClipRRect(
