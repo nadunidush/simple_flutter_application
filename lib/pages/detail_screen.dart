@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:provider/provider.dart';
+import 'package:simple_flutter_application/config/address.dart';
 import 'package:simple_flutter_application/constants/colors.dart';
 import 'package:simple_flutter_application/services/cart_services.dart';
 import 'package:simple_flutter_application/services/data_service.dart';
@@ -47,7 +48,7 @@ class _DetailScreenState extends State<DetailScreen> {
     };
 
     final response = await http.post(
-      Uri.parse('http://192.168.158.241:8080/cart'),
+      Uri.parse('http://${ipAddress}:8080/cart'),
       headers: {'Content-Type': 'application/json'},
       body: jsonEncode(cartItem),
     );

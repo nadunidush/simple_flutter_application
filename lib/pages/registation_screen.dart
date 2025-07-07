@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:simple_flutter_application/config/address.dart';
 import 'package:simple_flutter_application/constants/colors.dart';
 import 'dart:convert';
 
@@ -23,7 +24,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
     _formKey.currentState!.save();
 
     final res = await http.post(
-      Uri.parse('http://192.168.158.241:8080/users/registration'),
+      Uri.parse('http://${ipAddress}:8080/users/registration'),
       headers: {'Content-Type': 'application/json'},
       body: json.encode({
         'username': _usernameController.text,

@@ -1,9 +1,10 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:simple_flutter_application/config/address.dart';
 
 Future<List<dynamic>> loadItems() async {
   try {
-    final url = Uri.parse('http://192.168.158.241:8080/products');
+    final url = Uri.parse('http://${ipAddress}:8080/products');
     final res = await http.get(url);
 
     if (res.statusCode == 200) {

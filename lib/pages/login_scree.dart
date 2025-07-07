@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:simple_flutter_application/config/address.dart';
 import 'package:simple_flutter_application/constants/colors.dart';
 import 'dart:convert';
 import 'package:simple_flutter_application/pages/item_list_screen.dart';
@@ -21,7 +22,7 @@ class _LoginScreenState extends State<LoginScreen> {
     _formKey.currentState!.save();
 
     final res = await http.post(
-      Uri.parse('http://192.168.158.241:8080/users/login'),
+      Uri.parse('http://${ipAddress}:8080/users/login'),
       headers: {'Content-Type': 'application/json'},
       body: json.encode({
         'email': _emailController.text,

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
+import 'package:simple_flutter_application/config/address.dart';
+
 class CheckoutScreen extends StatefulWidget {
   const CheckoutScreen({super.key});
 
@@ -15,7 +17,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
 
   //Get All phones to checkout
   Future<void> fetchCartItems() async {
-    final res = await http.get(Uri.parse('http://192.168.158.241:8080/cart'));
+    final res = await http.get(Uri.parse('http://${ipAddress}:8080/cart'));
     if (res.statusCode == 200) {
       final List<dynamic> data = jsonDecode(res.body);
       setState(() {

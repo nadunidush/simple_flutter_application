@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
+import 'package:simple_flutter_application/config/address.dart';
+
 class CartScreen extends StatefulWidget {
   const CartScreen({super.key});
   @override
@@ -13,7 +15,7 @@ class _CartScreenState extends State<CartScreen> {
 
   //Get All Cart Phones
   Future<void> fetchCart() async {
-    final res = await http.get(Uri.parse('http://192.168.158.241:8080/cart'));
+    final res = await http.get(Uri.parse('http://${ipAddress}:8080/cart'));
     if (res.statusCode == 200) {
       setState(() {
         cartItems = json.decode(res.body);
@@ -31,7 +33,7 @@ class _CartScreenState extends State<CartScreen> {
     });
 
     await http.put(
-      Uri.parse('http://192.168.158.241:8080/cart/${cartItems[index]["_id"]}'),
+      Uri.parse('http://${ipAddress}:8080/cart/${cartItems[index]["_id"]}'),
       headers: {'Content-Type': 'application/json'},
       body: json.encode({"quantity": newQty}),
     );
@@ -40,7 +42,7 @@ class _CartScreenState extends State<CartScreen> {
   //Delete the of phone from cart
   Future<void> deleteItem(int index) async {
     final id = cartItems[index]["_id"];
-    await http.delete(Uri.parse('http://192.168.158.241:8080/cart/$id'));
+    await http.delete(Uri.parse('http://${ipAddress}:8080/cart/$id'));
     setState(() {
       cartItems.removeAt(index);
     });
